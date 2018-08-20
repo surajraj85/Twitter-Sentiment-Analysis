@@ -8,8 +8,8 @@ import nltk
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-train  = pd.read_csv('C:/MS_AI/twitter/train_E6oV3lV.csv')
-test = pd.read_csv('C:/MS_AI/twitter/test_tweets_anuFYb8.csv')
+train  = pd.read_csv('train_E6oV3lV.csv')
+test = pd.read_csv('test_tweets_anuFYb8.csv')
 #print(train.head())
 combi = train.append(test, ignore_index=True)
 combi.head()
@@ -160,7 +160,7 @@ test_pred_int = test_pred[:,1] >= 0.3
 test_pred_int = test_pred_int.astype(np.int)
 test['label'] = test_pred_int
 submission = test[['id','label']]
-submission.to_csv('C:/MS_AI/twitter/sub_lreg_bow.csv', index=False) # writing data to a CSV file
+submission.to_csv('sub_lreg_bow.csv', index=False) # writing data to a CSV file
 
 train_tfidf = tfidf[:31962,:]
 test_tfidf = tfidf[31962:,:]
